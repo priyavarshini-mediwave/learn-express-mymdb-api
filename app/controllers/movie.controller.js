@@ -1,9 +1,19 @@
-const { getAllMovies, addMovie, updateMovie, deleteMovie } = require("../db");
+const {
+  getAllMovies,
+  addMovie,
+  updateMovie,
+  deleteMovie,
+  getOneMovie,
+} = require("../db");
 
 const getAllMoviesController = (req, res) => {
-  console.log("get");
   const movies = getAllMovies();
   res.send(movies);
+};
+
+const getOneMovieController = (req, res) => {
+  const movie = getOneMovie({ id: req.params.id });
+  res.send(movie);
 };
 
 const addMovieController = (req, res) => {
@@ -38,4 +48,5 @@ module.exports = {
   addMovieController,
   updateMovieController,
   deleteMovieController,
+  getOneMovieController,
 };

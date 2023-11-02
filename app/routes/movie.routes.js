@@ -9,10 +9,14 @@ const {
   addMovieController,
   updateMovieController,
   deleteMovieController,
+  getOneMovieController,
 } = require("../controllers/movie.controller");
 
 // READ
 router.get("/", getAllMoviesController);
+
+//Get 1 movie
+router.get("/:id", getOneMovieController);
 
 // CREATE
 router.post("/", validate(movieSchema), addMovieController);

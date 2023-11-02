@@ -4,6 +4,14 @@ const movies = [];
 
 const getAllMovies = () => movies;
 
+const getOneMovie = ({ id }) => {
+  const idx = movies.findIndex((m) => m.id == id);
+  if (idx === -1) {
+    return null;
+  }
+  return movies[idx];
+};
+
 const addMovie = ({ title, year }) => {
   const id = uuidv4();
   const m = {
@@ -43,4 +51,5 @@ module.exports = {
   addMovie,
   updateMovie,
   deleteMovie,
+  getOneMovie,
 };
